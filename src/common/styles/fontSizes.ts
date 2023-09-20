@@ -4,5 +4,6 @@ export const FONTSIZE = {
   md : 16,
   lg : 18,
   xl : 20,
+  sxl : 26, 
   xxl : 38
 }

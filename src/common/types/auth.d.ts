@@ -1,7 +1,7 @@
 export type AuthResponse = {
   status: number,
   connected :boolean,
-  token :string | null,
+  token :string,
   message :string 
 }
 

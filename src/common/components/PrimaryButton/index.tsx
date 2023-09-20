@@ -1,5 +1,6 @@
-import { Text, TouchableOpacity, TouchableOpacityProps, ViewStyle } from 'react-native';
+import { Text, TouchableOpacity } from 'react-native';
 import { primaryButtonStyles as s } from './style'
+import { PrimaryButtonProps } from './prop';
 export const PrimaryButton = ( {title, styleCtn, styleTxt,...restTouchableOpacityProps} :PrimaryButtonProps) => {
   return (
     <TouchableOpacity
@@ -12,11 +13,5 @@ export const PrimaryButton = ( {title, styleCtn, styleTxt,...restTouchableOpacit
     </TouchableOpacity>
   )
 };
-
-type PrimaryButtonProps = {
-  title : string,
-  styleCtn? : ViewStyle,
-  styleTxt? : ViewStyle
-} & TouchableOpacityProps;
 
 export default PrimaryButton ;

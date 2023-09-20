@@ -1,9 +1,8 @@
-import { Control, Controller, FieldError, RegisterOptions } from 'react-hook-form';
-import { StyleSheet, StyleSheetProperties, Text, TextInput, View, ViewStyle } from 'react-native';
+import { Controller } from 'react-hook-form';
+import { Text, TextInput, View } from 'react-native';
 import { COLORS } from '../../styles/colors';
-import { FONTSIZE } from '../../styles/fontSizes';
-import { TextInputProps } from 'react-native';
-import { FONT_FAMILY_NAME } from '../../constants';
+import { componentStyle as s } from './style';
+import { TextInputCSProps } from './prop';
 
 export const TextInputCS = ({control, name, placeholder="Enter", styleCtn, styleTxt, ...restTextInputProps}:TextInputCSProps) => {
   return (
@@ -29,7 +28,6 @@ export const TextInputCS = ({control, name, placeholder="Enter", styleCtn, style
             placeholderTextColor={ error || errors.root ? COLORS.red : COLORS.secondary}
             style={{
               ...s.inputText,
-              color : ( error || errors.root ? COLORS.red : COLORS.secondary),
               ...styleTxt
             }}
           />
@@ -41,43 +39,5 @@ export const TextInputCS = ({control, name, placeholder="Enter", styleCtn, style
   />
   )
 };
-
-type TextInputCSProps = {
-  placeholder : string,
-  control : Control<any>,
-  name :string,
-  styleCtn? :ViewStyle,
-  styleTxt? :ViewStyle,
-  rules? :RegisterOptions<any,string> // to be tested and fixed
-} & TextInputProps;
-
-const s = StyleSheet.create({
-  inputText: {
-    fontFamily : FONT_FAMILY_NAME,
-    fontSize: FONTSIZE.md,
-    color : COLORS.secondary
-  },
-  errorText : {
-    fontFamily : FONT_FAMILY_NAME,
-    color : COLORS.red,
-    fontSize : FONTSIZE.sm,
-    width : "90%",
-    paddingHorizontal : 16,
-    marginTop : 3,
-    minHeight : 18,
-    textTransform : "capitalize"
-  },
-  inputContainer : {
-    borderColor : COLORS.grey,
-    borderWidth : 1,
-    borderRadius: 4,
-    height : 46,
-    width : "90%",
-    paddingHorizontal : 16,
-    paddingVertical : 13,
-    backgroundColor : COLORS.white,
-  }
-});
-
 
 export default TextInputCS ;

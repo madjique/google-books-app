@@ -3,11 +3,14 @@ import { SafeAreaView } from "react-navigation"
 import { getBooksPerPage } from "../../common/network/api/books"
 import { useState } from "react"
 import { useInfiniteQuery } from "@tanstack/react-query"
-import { Book } from "../../common/types"
+import { Book, StackNavigation } from "../../common/types"
 import BookCard from "../../common/components/BookCard"
+import { useNavigation } from "@react-navigation/native"
+import { clearUserSession } from "../../common/Storage"
 
 
 const BooksList = () => {
+  const navigation = useNavigation<StackNavigation>(); 
   const [offset, setOffset] = useState<number>(0)
   const LIMIT_PER_SCREEN = 10
   const fetchBooks = ({ pageParam = 0 }):Promise<Book[]> => 
@@ -30,6 +33,7 @@ const BooksList = () => {
       <StatusBar/>
         <Text 
           style={{margin: 30 , fontSize: 20, fontWeight: "600"}} 
+          onPress={()=> { clearUserSession(); navigation.replace("Login") }}
           >All Books</Text>
           <FlatList
             data={books?.pages.flat()}
