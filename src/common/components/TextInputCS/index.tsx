@@ -24,12 +24,12 @@ export const TextInputCS = ({control, name, placeholder="Enter", styleCtn, style
             onChangeText={onChange}
             value={value}
             autoCapitalize='none'
-            {...restTextInputProps}
             placeholderTextColor={ error || errors.root ? COLORS.red : COLORS.secondary}
             style={{
               ...s.inputText,
               ...styleTxt
             }}
+            {...restTextInputProps}
           />
         </View>
         <Text style={s.errorText}>{ error && error?.type }</Text>

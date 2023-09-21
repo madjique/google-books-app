@@ -28,7 +28,7 @@ const Login = () => {
     })
 
     const onSubmit = (data :AuthCredentials) => {
-      setLoading(true) // this can be moved to Redux 
+      setLoading(true)
       mockLogin(data)
       .then( (data :AuthResponse) => {
         saveUserSession(data.token)
@@ -48,8 +48,8 @@ const Login = () => {
       resizeMode="cover"
     >
       <View style={gs.screenContainer}>
-        <Text style={{...gs.header,...ls.loginHeader}} >Tech books</Text>
-        <Text style={gs.subHeader} >Welcome !</Text>
+        <Text style={{...gs.header,...ls.loginHeader}}>Story Books</Text>
+        <Text style={gs.subHeader} >Browse Now !</Text>
         <TextInputCS
           name="username"
           control={control}

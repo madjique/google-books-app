@@ -1,8 +1,7 @@
-import { Image, Text, TouchableWithoutFeedback, View } from 'react-native';
+import { Image, Platform, Text, TouchableWithoutFeedback, View } from 'react-native';
 import { TitlePageHeaderProps } from './prop';
 import React from 'react';
 import { BlurView } from "@react-native-community/blur";
-
 import { componentStyle as s } from './style';
 import { images } from '../../../assets/images';
 import { useNavigation } from '@react-navigation/native';
@@ -15,12 +14,15 @@ export const TitlePageHeader = ( {title, styleCtn, styleTxt, styleOpt, OptionCom
         style={{ ...s.pageTitleContainer, ...styleCtn }}
         {...restViewProps}
       >
-      <BlurView
-        style={s.blurView}
-        blurType="light"
-        blurAmount={10}
-        reducedTransparencyFallbackColor="white"
-      />
+        {
+          Platform.OS === 'ios' &&
+          <BlurView
+            style={s.blurView}
+            blurType="regular"
+            blurAmount={10}
+            reducedTransparencyFallbackColor="white"
+          /> 
+        }
       {
         goBackOption && 
         <TouchableWithoutFeedback 
@@ -37,7 +39,7 @@ export const TitlePageHeader = ( {title, styleCtn, styleTxt, styleOpt, OptionCom
       {
         OptionComponent && 
         <TouchableWithoutFeedback 
-          onPress={() => onOptionPress()}>
+          onPress={onOptionPress}>
           <View 
             style={{...s.option , ...styleOpt}}>
             <OptionComponent />

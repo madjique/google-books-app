@@ -1,4 +1,4 @@
-import { ImageBackground, Text, View } from "react-native"
+import { ImageBackground, ScrollView, Text, View } from "react-native"
 import { images } from "../../assets/images";
 import { clearUserSession } from "../../common/Storage";
 import { useNavigation } from "@react-navigation/native";
@@ -20,20 +20,23 @@ const Settings = () => {
       <View style={gs.screenContainer}>
         <TitlePageHeader
           title="Settings"
-          styleTxt={ss.titlePageHeaderText}
+          styleCtn={ss.titlePageHeader}
           goBackOption
           />
+        <View style={ss.titleHeaderShadow} />
+        <ScrollView>
           <Text style={gs.subHeader}> No other options are available yet </Text>
-          <PrimaryButton
-            title="Disconnect" 
-            styleCtn={ss.disconnectButton}
-            bgColor={COLORS.red}
-            onPress={()=> { 
-              clearUserSession();
-              navigation.popToTop();
-              navigation.replace("Login"); 
-             }}
-          />
+        </ScrollView>
+        <PrimaryButton
+          title="Disconnect" 
+          styleCtn={ss.disconnectButton}
+          bgColor={COLORS.red}
+          onPress={()=> { 
+            clearUserSession();
+            navigation.popToTop();
+            navigation.replace("Login"); 
+          }}
+        />
       </View>
     </ImageBackground>
   )

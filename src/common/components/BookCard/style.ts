@@ -7,6 +7,7 @@ export const componentStyle = StyleSheet.create({
   container: {
     borderRadius : 16,
     padding : 10,
+    marginHorizontal : 10,
     minHeight : 100,
     maxWidth : "100%",
     display: "flex",
@@ -19,7 +20,7 @@ export const componentStyle = StyleSheet.create({
     },
     shadowOpacity: 0.05,
     shadowRadius: 20,
-    elevation: 1,
+    elevation: 3,
   },
   imageContainer: {
     height : 80,

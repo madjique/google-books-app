@@ -6,8 +6,10 @@ import { COLORS } from "../../styles/colors";
 export const componentStyle = StyleSheet.create({
   inputText: {
     fontFamily : FONT_FAMILY_NAME,
+    fontWeight : "400",
+    color : COLORS.secondary,
     fontSize: FONTSIZE.md,
-    color : COLORS.secondary
+    padding: 0
   },
   errorText : {
     fontFamily : FONT_FAMILY_NAME,

@@ -33,7 +33,7 @@ const BooksList = () => {
       style={gs.screenContainer}
       >
       <TitlePageHeader
-        title="Book List"
+        title="Trending books"
         styleCtn={ss.titlePageHeader}
         OptionComponent={()=><Image source={images.account}/>}
         onOptionPress={() => navigation.navigate("Settings")}

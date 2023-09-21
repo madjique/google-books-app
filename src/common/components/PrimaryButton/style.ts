@@ -17,7 +17,7 @@ export const primaryButtonStyles = StyleSheet.create({
     },
     shadowOpacity: 0.16,
     shadowRadius: 5,
-    elevation: 1,
+    elevation: 3,
   },
   buttonText: {
     fontFamily : FONT_FAMILY_NAME,

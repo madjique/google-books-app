@@ -1,4 +1,4 @@
-import { Image, Linking, ScrollView, Text, TouchableOpacity, View } from "react-native"
+import { Linking, ScrollView, Text, View } from "react-native"
 import { BookOverviewScreenProp } from "../../common/types"
 import { NOT_AVAILABLE_DATA_PLACEHOLDER, NO_BOOK_IMAGE_AVAILABLE_FALLBACK } from "../../common/constants"
 import TitlePageHeader from "../../common/components/TitlePageHeader"
@@ -6,6 +6,7 @@ import { screenStyle as ss } from "./style"
 import { globalStyle as gs } from "../../common/styles/global.style"
 import PrimaryButton from "../../common/components/PrimaryButton"
 import { COLORS } from "../../common/styles/colors"
+import FastImage from "react-native-fast-image"
 
 const BookOverview = ( { route } : BookOverviewScreenProp ) => {
 
@@ -25,7 +26,7 @@ const BookOverview = ( { route } : BookOverviewScreenProp ) => {
         style={ss.bookCard}
         >
         <View style={ss.titleHeaderShadow} />
-        <Image
+        <FastImage
           style = {ss.bookImage}
           source= {imageLinks?.thumbnail ? {uri:imageLinks?.thumbnail } : NO_BOOK_IMAGE_AVAILABLE_FALLBACK}
         /> 
@@ -42,7 +43,7 @@ const BookOverview = ( { route } : BookOverviewScreenProp ) => {
           Year : { new Date(publishedDate).getFullYear() }
         </Text>
         <Text style={ss.bookSubFields} >
-            ISBN : {industryIdentifiers[0].identifier} 
+            ISBN : {industryIdentifiers[0]?.identifier} 
         </Text>
         <PrimaryButton 
           title="See in Google Books"
