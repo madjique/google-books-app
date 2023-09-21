@@ -1,16 +1,18 @@
-import { ActivityIndicator, FlatList, StatusBar, Text, View } from "react-native"
-import { SafeAreaView } from "react-navigation"
+import { ActivityIndicator, FlatList, Text, View, Image } from "react-native"
 import { getBooksPerPage } from "../../common/network/api/books"
 import { useState } from "react"
 import { useInfiniteQuery } from "@tanstack/react-query"
-import { Book, StackNavigation } from "../../common/types"
+import { Book, BooksListScreenNavigationProp } from "../../common/types"
 import BookCard from "../../common/components/BookCard"
+import TitlePageHeader from "../../common/components/TitlePageHeader"
+import { screenStyle as ss } from "./style"
+import { globalStyle as gs } from "../../common/styles/global.style"
+import { images } from "../../assets/images"
 import { useNavigation } from "@react-navigation/native"
-import { clearUserSession } from "../../common/Storage"
 
 
 const BooksList = () => {
-  const navigation = useNavigation<StackNavigation>(); 
+  const navigation = useNavigation<BooksListScreenNavigationProp>();
   const [offset, setOffset] = useState<number>(0)
   const LIMIT_PER_SCREEN = 10
   const fetchBooks = ({ pageParam = 0 }):Promise<Book[]> => 
@@ -27,27 +29,35 @@ const BooksList = () => {
     getNextPageParam : ()=> LIMIT_PER_SCREEN*offset,
   })
   return (
-    <SafeAreaView 
-      style={{ flex: 1 , alignItems: "center", minWidth: "100%"}}
+    <View 
+      style={gs.screenContainer}
       >
-      <StatusBar/>
-        <Text 
-          style={{margin: 30 , fontSize: 20, fontWeight: "600"}} 
-          onPress={()=> { clearUserSession(); navigation.replace("Login") }}
-          >All Books</Text>
-          <FlatList
-            data={books?.pages.flat()}
-            refreshing={true}
-            renderItem={({item}) => item && <BookCard key={item?.id || item.toString()} book={item} />}
-            ItemSeparatorComponent={()=><View style={{height: 10}} />}
-            keyExtractor={item => item?.volumeInfo?.previewLink}
-            onEndReached={()=> !isFetching && hasNextPage && fetchNextPage()}
-          />
-          <View style={{height: 30 , marginBottom : 20}}>
+      <TitlePageHeader
+        title="Book List"
+        styleCtn={ss.titlePageHeader}
+        OptionComponent={()=><Image source={images.account}/>}
+        onOptionPress={() => navigation.navigate("Settings")}
+        goBackOption={false}
+        />
+      <FlatList
+        data={books?.pages.flat()}
+        ListHeaderComponent={<></>}
+        ListHeaderComponentStyle={ss.listHeader}
+        style={ss.list}
+        refreshing={true}
+        renderItem={({item}) => item && <BookCard key={item?.id || item.toString()} book={item} />}
+        ItemSeparatorComponent={()=><View style={{height: 10}} />}
+        keyExtractor={item => item?.volumeInfo?.previewLink}
+        onEndReached={()=> !isFetching && hasNextPage && fetchNextPage()}
+        showsVerticalScrollIndicator={false}
+        ListFooterComponent={
+          <View style={ss.loadingContainer}>
             { isFetching && <ActivityIndicator/> }
-            { !isFetching && !!error && <Text style={{color: "red"}}>{error.toString()}</Text>}
+            { !isFetching && !!error && <Text style={gs.errorText}>{error.toString()}</Text>}
           </View>
-    </SafeAreaView>
+        }
+      />
+    </View>
   )
 }
 

@@ -1,13 +1,10 @@
 import { useNavigation } from "@react-navigation/native";
-import { ActivityIndicator, ImageBackground, StatusBar, StyleSheet, Text, View } from "react-native"
+import { ActivityIndicator, ImageBackground, StyleSheet, Text, View } from "react-native"
 import { AuthCredentials, AuthResponse, LoginScreenNavigationProp } from "../../common/types";
 import { mockLogin } from "../../common/network/api/login";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { images } from "../../assets/images";
-import { FONT_FAMILY_NAME } from "../../common/constants";
-import { COLORS } from "../../common/styles/colors";
-import { FONTSIZE } from "../../common/styles/fontSizes";
 import { TextInputCS } from "../../common/components/TextInputCS";
 import PrimaryButton from "../../common/components/PrimaryButton";
 import { AuthContext } from "../../common/contexts/authCtx";
@@ -50,9 +47,8 @@ const Login = () => {
       style={gs.bg} 
       resizeMode="cover"
     >
-      <StatusBar />
       <View style={gs.screenContainer}>
-        <Text style={{...gs.header,...localStyle.loginHeader}} >Tech books</Text>
+        <Text style={{...gs.header,...ls.loginHeader}} >Tech books</Text>
         <Text style={gs.subHeader} >Welcome !</Text>
         <TextInputCS
           name="username"
@@ -68,7 +64,7 @@ const Login = () => {
         <PrimaryButton
           title="Log in"
           onPress={handleSubmit(onSubmit)}
-          styleCtn={localStyle.loginButton}
+          styleCtn={ls.loginButton}
         />
 
         { loading && <ActivityIndicator/> }
@@ -78,7 +74,7 @@ const Login = () => {
   )
 }
 
-const localStyle = StyleSheet.create({
+const ls = StyleSheet.create({
   loginButton : {
     marginTop : 10
   },

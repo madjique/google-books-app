@@ -10,7 +10,6 @@ const GoogleBooksV1Client :AxiosInstance = axios.create({
 
 export function getBooksPerPage(perPage: number,index: number) :Promise<GoogleBooksApiResponse> {
   const GET_TECH_BOOKS_QUERY = `?q=tech&key=${GOOGLE_BOOKS_API_KEY}`
-  // console.log(`${GOOGLE_BOOKS_V1_API_BASE_URL}${GET_TECH_BOOKS_QUERY}&orderBy=relevance&startIndex=${index}&maxResults=${perPage}`)
   return GoogleBooksV1Client.get(`${GET_TECH_BOOKS_QUERY}&orderBy=relevance&startIndex=${index}&maxResults=${perPage}`)
 }
 

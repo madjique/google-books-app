@@ -33,17 +33,5 @@ export const globalStyle = StyleSheet.create({
     paddingHorizontal : 16,
     marginTop : 3,
     minHeight : 18
-  },
-  pageTitleContainer : {
-    width : " 100%",
-    height : 110,
-    padding : 24,
-    paddingTop : 56 
-  },
-  pageTitle :{
-   fontFamily : FONT_FAMILY_NAME,
-   fontWeight : "700",
-   fontSize : FONTSIZE.sxl,
-   color : COLORS.blackberry,
   }
 })

@@ -10,7 +10,7 @@ export type RootStackNavigatorParamList = {
   BookOverview: {
     book: Book
   },
-  UserProfile: undefined
+  Settings: undefined
 }
 
 export type SplashScreenNavigationProp = NativeStackNavigationProp<
@@ -33,9 +33,9 @@ export type BookOverviewScreenNavigationProp = NativeStackNavigationProp<
   'BookOverview'
 >;
 
-export type UserProfileScreenNavigationProp = NativeStackNavigationProp<
+export type SettingsScreenNavigationProp = NativeStackNavigationProp<
   RootStackNavigatorParamList,
-  'UserProfile'
+  'Settings'
 >;
 
 export interface BookOverviewScreenProp {

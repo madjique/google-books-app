@@ -1,10 +1,11 @@
 import { Text, TouchableOpacity } from 'react-native';
 import { primaryButtonStyles as s } from './style'
 import { PrimaryButtonProps } from './prop';
-export const PrimaryButton = ( {title, styleCtn, styleTxt,...restTouchableOpacityProps} :PrimaryButtonProps) => {
+import { COLORS } from '../../styles/colors';
+export const PrimaryButton = ( {title, styleCtn, styleTxt, bgColor = COLORS.primary, ...restTouchableOpacityProps} :PrimaryButtonProps) => {
   return (
     <TouchableOpacity
-        style={{ ...s.buttonContainer, ...styleCtn }}
+        style={{ ...s.buttonContainer, ...styleCtn, backgroundColor: bgColor }}
         {...restTouchableOpacityProps}
       >
       <Text style={{...s.buttonText, ...styleTxt}}>

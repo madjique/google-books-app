@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
-import { Image, ImageBackground, StatusBar, StyleSheet, View } from "react-native"
+import { Image, ImageBackground, StyleSheet, View } from "react-native"
 import { SplashScreenNavigationProp } from "../../common/types";
 
 import { images } from "../../assets/images";
@@ -28,11 +28,10 @@ const Splash = () => {
       style={gs.bg} 
       resizeMode="cover"
     >
-      <StatusBar />
-      <View style={gs.screenContainer}>
+      <View style={ls.centerScreenContainer}>
         <Image
           source={images.logo}
-          style={localStyle.splash_logo}
+          style={ls.splash_logo}
         />
       </View>
     </ImageBackground>
@@ -40,7 +39,11 @@ const Splash = () => {
 }
 
 
-const localStyle = StyleSheet.create({
+const ls = StyleSheet.create({
+  centerScreenContainer :{
+    ...gs.screenContainer,
+    justifyContent :"center"
+  },
   splash_logo : {
     width : 200,
     height : 200,

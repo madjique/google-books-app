@@ -3,11 +3,10 @@ import Login from '../screens/Login';
 import BookList from '../screens/BooksList';
 import BookOverview from '../screens/BookOverview';
 import { RootStackNavigatorParamList, User } from '../common/types';
-import { useEffect, useState } from 'react';
-import { getUserSession } from '../common/Storage';
+import { useState } from 'react';
 import { AuthContext, userCtxValue } from '../common/contexts/authCtx';
 import Splash from '../screens/Splash';
-import UserProfile from '../screens/UserProfile';
+import Settings from '../screens/Settings';
 
 const Stack = createNativeStackNavigator<RootStackNavigatorParamList>();
 
@@ -15,7 +14,7 @@ const Router = () => {
   const [user, setUser] = useState<User>({})
 
   return (
-    <AuthContext.Provider value={{...userCtxValue, dispatch:setUser}}>
+    <AuthContext.Provider value={{dispatch:setUser}}>
       <Stack.Navigator 
         initialRouteName="Splash"
         screenOptions={{
@@ -28,9 +27,8 @@ const Router = () => {
               <>
                 <Stack.Screen name="BooksList" component={BookList} />
                 <Stack.Screen name="BookOverview" component={BookOverview} />
-                <Stack.Screen name="UserProfile" component={UserProfile} />
+                <Stack.Screen name="Settings" component={Settings} />
               </> 
-            
           }
           <Stack.Screen name="Login" component={Login} />
       </Stack.Navigator>
