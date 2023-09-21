@@ -46,7 +46,7 @@ const BooksList = () => {
         style={ss.list}
         refreshing={true}
         renderItem={({item}) => item && <BookCard key={item?.id || item.toString()} book={item} />}
-        ItemSeparatorComponent={()=><View style={{height: 10}} />}
+        ItemSeparatorComponent={()=><View style={{height: 8}} />}
         keyExtractor={item => item?.volumeInfo?.previewLink}
         onEndReached={()=> !isFetching && hasNextPage && fetchNextPage()}
         showsVerticalScrollIndicator={false}

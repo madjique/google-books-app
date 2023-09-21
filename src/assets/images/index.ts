@@ -3,5 +3,6 @@ export const images = {
   full_logo: require('./full_Logo.png'),
   logo: require('./logo.png'),
   account: require('./icons/settings.png'),
-  leftArrow : require('./icons/chevron-left.png') 
+  leftArrow: require('./icons/chevron-left.png'),
+  noImage: require('./no-image.jpeg')
 };

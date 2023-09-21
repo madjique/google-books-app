@@ -23,7 +23,7 @@ const Settings = () => {
           styleTxt={ss.titlePageHeaderText}
           goBackOption
           />
-          <Text style={gs.subHeader}> No other options available yet </Text>
+          <Text style={gs.subHeader}> No other options are available yet </Text>
           <PrimaryButton
             title="Disconnect" 
             styleCtn={ss.disconnectButton}

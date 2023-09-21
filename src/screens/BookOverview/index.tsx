@@ -1,6 +1,6 @@
 import { Image, Linking, ScrollView, Text, TouchableOpacity, View } from "react-native"
 import { BookOverviewScreenProp } from "../../common/types"
-import { NOT_AVAILABLE_DATA_PLACEHOLDER, NO_BOOK_IMAGE_AVAILABLE_FALLBACK_URL } from "../../common/constants"
+import { NOT_AVAILABLE_DATA_PLACEHOLDER, NO_BOOK_IMAGE_AVAILABLE_FALLBACK } from "../../common/constants"
 import TitlePageHeader from "../../common/components/TitlePageHeader"
 import { screenStyle as ss } from "./style"
 import { globalStyle as gs } from "../../common/styles/global.style"
@@ -9,7 +9,7 @@ import { COLORS } from "../../common/styles/colors"
 
 const BookOverview = ( { route } : BookOverviewScreenProp ) => {
 
-  const {imageLinks, title, description, authors, industryIdentifiers, publisher, previewLink} = route.params.book.volumeInfo
+  const {imageLinks, title, description, authors, industryIdentifiers, publisher, previewLink, publishedDate} = route.params.book.volumeInfo
   
   return (
     <View 
@@ -27,7 +27,7 @@ const BookOverview = ( { route } : BookOverviewScreenProp ) => {
         <View style={ss.titleHeaderShadow} />
         <Image
           style = {ss.bookImage}
-          source= {{uri:imageLinks?.thumbnail || NO_BOOK_IMAGE_AVAILABLE_FALLBACK_URL}}
+          source= {imageLinks?.thumbnail ? {uri:imageLinks?.thumbnail } : NO_BOOK_IMAGE_AVAILABLE_FALLBACK}
         /> 
         <Text style={ss.bookTitle} >
           {title}
@@ -37,6 +37,9 @@ const BookOverview = ( { route } : BookOverviewScreenProp ) => {
         </Text>
         <Text style={ss.bookSubFields} >
             Publisher : {publisher || NOT_AVAILABLE_DATA_PLACEHOLDER }
+        </Text>
+        <Text style={ss.bookSubFields}>
+          Year : { new Date(publishedDate).getFullYear() }
         </Text>
         <Text style={ss.bookSubFields} >
             ISBN : {industryIdentifiers[0].identifier} 

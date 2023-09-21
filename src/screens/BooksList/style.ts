@@ -4,7 +4,7 @@ import { COLORS } from "../../common/styles/colors";
 export const screenStyle = StyleSheet.create({
   list : {
     width: " 100%",
-    paddingHorizontal : 10,
+    paddingHorizontal : 24,
     backgroundColor : COLORS.white
   },
   listHeader : {
