@@ -1,7 +1,7 @@
 import { Controller } from 'react-hook-form';
 import { Text, TextInput, View } from 'react-native';
 import { COLORS } from '../../styles/colors';
-import { componentStyle as s } from './style';
+import { componentStyle as cs } from './style';
 import { TextInputCSProps } from './prop';
 
 export const TextInputCS = ({control, name, placeholder="Enter", styleCtn, styleTxt, ...restTextInputProps}:TextInputCSProps) => {
@@ -14,7 +14,7 @@ export const TextInputCS = ({control, name, placeholder="Enter", styleCtn, style
       <>
         <View 
           style={{
-            ...s.inputContainer,
+            ...cs.inputContainer,
             borderColor : ( error || errors.root ? COLORS.red : COLORS.secondary),
             ...styleCtn
           }}>
@@ -26,13 +26,13 @@ export const TextInputCS = ({control, name, placeholder="Enter", styleCtn, style
             autoCapitalize='none'
             placeholderTextColor={ error || errors.root ? COLORS.red : COLORS.secondary}
             style={{
-              ...s.inputText,
+              ...cs.inputText,
               ...styleTxt
             }}
             {...restTextInputProps}
           />
         </View>
-        <Text style={s.errorText}>{ error && error?.type }</Text>
+        <Text style={cs.errorText}>{ error && error?.type }</Text>
       </>
     )}
     name={name}

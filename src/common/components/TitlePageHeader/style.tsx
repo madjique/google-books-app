@@ -1,7 +1,7 @@
 import { Platform, StyleSheet } from "react-native";
-import { FONT_FAMILY_NAME } from "../../constants";
 import { FONTSIZE } from "../../styles/fontSizes";
 import { COLORS } from "../../styles/colors";
+import { fontFamiliy } from "../../styles/fontFamily";
 
 const pageTitleContainerAndroid = {
   backgroundColor : "white"
@@ -18,11 +18,10 @@ export const componentStyle = StyleSheet.create({
     ...(Platform.OS === 'android') && pageTitleContainerAndroid
   },
   pageTitle :{
-   fontFamily : FONT_FAMILY_NAME,
-   fontWeight : "700",
+   fontFamily : fontFamiliy.bold,
    fontSize : FONTSIZE.sxl,
    color : COLORS.blackberry,
-   margin : -1,
+   margin : -1
   },
   blurView : {
     position: "absolute",

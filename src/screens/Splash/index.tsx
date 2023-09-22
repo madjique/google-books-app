@@ -1,27 +1,20 @@
 import { useNavigation } from "@react-navigation/native";
 import { Image, ImageBackground, StyleSheet, View } from "react-native"
 import { SplashScreenNavigationProp } from "../../common/types";
-
 import { images } from "../../assets/images";
-import { useContext, useEffect } from "react";
-import { getUserSession } from "../../common/Storage";
-import { AuthContext } from "../../common/contexts/authCtx";
+import { useEffect } from "react";
+import { useAuthContext } from "../../common/contexts/authCtx";
 import { globalStyle as gs } from "../../common/styles/global.style";
 
 const Splash = () => {
     const navigation = useNavigation<SplashScreenNavigationProp>();
-    const { dispatch } = useContext(AuthContext);
+    const { isLoading, isSignedIn } = useAuthContext();
+    
     useEffect( () => {
-      getUserSession()
-      .then(token => {
-        if(token) {
-          dispatch && dispatch({token})
-          navigation.replace("BooksList")
-        }
-        else
-          navigation.replace("Login")
-      })
-    }, [])
+      if (!isLoading)
+        isSignedIn ? navigation.replace("BooksList") : navigation.replace("Login")
+    }, [isLoading])
+
     return (
     <ImageBackground 
       source={images.main_bg} 

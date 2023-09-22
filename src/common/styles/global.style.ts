@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
-import { FONT_FAMILY_NAME } from "../constants";
 import { FONTSIZE } from "./fontSizes";
 import { COLORS } from "./colors";
+import { fontFamiliy } from "./fontFamily";
 
 export const globalStyle = StyleSheet.create({
   screenContainer : { 
@@ -13,20 +13,18 @@ export const globalStyle = StyleSheet.create({
     width: "100%"
   },
   header : {
-   fontFamily : FONT_FAMILY_NAME,
-   fontWeight : "700",
+   fontFamily : fontFamiliy.bold,
    fontSize : FONTSIZE.xxl,
    color : COLORS.blackberry,
   },
   subHeader : {
-   fontFamily : FONT_FAMILY_NAME,
-   fontWeight : "700",
+   fontFamily : fontFamiliy.bold,
    color : COLORS.secondary,
    fontSize : FONTSIZE.md,
    marginBottom : 14
   },
   errorText : {
-    fontFamily : FONT_FAMILY_NAME,
+    fontFamily : fontFamiliy.regular,
     color : COLORS.red,
     fontSize : FONTSIZE.sm,
     width : "90%",

@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 import { COLORS } from "../../styles/colors";
-import { FONT_FAMILY_NAME } from "../../constants";
 import { FONTSIZE } from "../../styles/fontSizes";
+import { fontFamiliy } from "../../styles/fontFamily";
 
 export const componentStyle = StyleSheet.create({
   container: {
@@ -33,15 +33,13 @@ export const componentStyle = StyleSheet.create({
     width : "70%",
   },
   title: {
-    fontFamily: FONT_FAMILY_NAME,
-    fontWeight: "700",
+    fontFamily: fontFamiliy.bold,
     fontSize : FONTSIZE.lg,
     color : COLORS.blackberry,
   },
   text: {
-    fontFamily: FONT_FAMILY_NAME,
+    fontFamily: fontFamiliy.medium,
     fontSize : FONTSIZE.sm,
-    fontWeight : "400",
     color : COLORS.secondary
   }
 });

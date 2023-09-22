@@ -2,6 +2,7 @@ import { NavigationContainer  as RootNavigationContainer} from '@react-navigatio
 import Stack from './Router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { StatusBar } from 'react-native';
+import { AuthContextProvider } from './common/contexts/authCtx';
 
 function App(): JSX.Element {
 
@@ -11,10 +12,12 @@ function App(): JSX.Element {
   
   return (
     <QueryClientProvider client={queryClient}>
-      <StatusBar hidden/>
-      <RootNavigationContainer>
-        <Stack />
-      </RootNavigationContainer>
+      <AuthContextProvider>
+        <StatusBar hidden/>
+        <RootNavigationContainer>
+          <Stack />
+        </RootNavigationContainer>
+      </AuthContextProvider>
     </QueryClientProvider>
   );
 }

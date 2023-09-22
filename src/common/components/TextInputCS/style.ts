@@ -1,18 +1,18 @@
-import { StyleSheet } from "react-native";
-import { FONT_FAMILY_NAME } from "../../constants";
+import { Platform, StyleSheet } from "react-native";
 import { FONTSIZE } from "../../styles/fontSizes";
 import { COLORS } from "../../styles/colors";
+import { fontFamiliy } from "../../styles/fontFamily";
 
 export const componentStyle = StyleSheet.create({
   inputText: {
-    fontFamily : FONT_FAMILY_NAME,
-    fontWeight : "400",
+    fontFamily : fontFamiliy.bold,
     color : COLORS.secondary,
     fontSize: FONTSIZE.md,
-    padding: 0
+    padding: 0,
+    marginBottom : (Platform.OS === 'android'? -5 : 0 )
   },
   errorText : {
-    fontFamily : FONT_FAMILY_NAME,
+    fontFamily : fontFamiliy.regular,
     color : COLORS.red,
     fontSize : FONTSIZE.sm,
     width : "90%",

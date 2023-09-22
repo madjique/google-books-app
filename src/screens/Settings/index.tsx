@@ -1,6 +1,5 @@
 import { ImageBackground, ScrollView, Text, View } from "react-native"
 import { images } from "../../assets/images";
-import { clearUserSession } from "../../common/Storage";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigation } from "../../common/types";
 import PrimaryButton from "../../common/components/PrimaryButton";
@@ -8,9 +7,11 @@ import TitlePageHeader from "../../common/components/TitlePageHeader";
 import { globalStyle as gs } from "../../common/styles/global.style";
 import { screenStyle as ss } from "./style";
 import { COLORS } from "../../common/styles/colors";
+import { useAuthContext } from "../../common/contexts/authCtx";
 
 const Settings = () => {
   const navigation = useNavigation<StackNavigation>(); 
+  const { signOut } = useAuthContext()  
     return (
     <ImageBackground 
       source={images.main_bg} 
@@ -32,7 +33,7 @@ const Settings = () => {
           styleCtn={ss.disconnectButton}
           bgColor={COLORS.red}
           onPress={()=> { 
-            clearUserSession();
+            signOut()
             navigation.popToTop();
             navigation.replace("Login"); 
           }}

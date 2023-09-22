@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 import { COLORS } from "../../common/styles/colors";
-import { FONT_FAMILY_NAME } from "../../common/constants";
 import { FONTSIZE } from "../../common/styles/fontSizes";
+import { fontFamiliy } from "../../common/styles/fontFamily";
 
 export const screenStyle = StyleSheet.create({
   titleHeader : {
@@ -22,16 +22,14 @@ export const screenStyle = StyleSheet.create({
     backgroundColor : COLORS.white
   },
   bookTitle : {
-    fontFamily : FONT_FAMILY_NAME,
+    fontFamily : fontFamiliy.bold,
     fontSize : FONTSIZE.sxl,
-    fontWeight : "700",
     color : COLORS.blackberry,
     marginVertical : 10
   },
   bookSubFields : {
-    fontFamily : FONT_FAMILY_NAME,
+    fontFamily : fontFamiliy.medium,
     fontSize : FONTSIZE.md,
-    fontWeight : "400",
     color : COLORS.blackberry,
     paddingVertical : 5
   },

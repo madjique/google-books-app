@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
-import { FONT_FAMILY_NAME } from "../../constants";
 import { FONTSIZE } from "../../styles/fontSizes";
 import { COLORS } from "../../styles/colors";
+import { fontFamiliy } from "../../styles/fontFamily";
 
 export const primaryButtonStyles = StyleSheet.create({
   buttonContainer: {
@@ -20,9 +20,8 @@ export const primaryButtonStyles = StyleSheet.create({
     elevation: 3,
   },
   buttonText: {
-    fontFamily : FONT_FAMILY_NAME,
+    fontFamily : fontFamiliy.bold,
     fontSize : FONTSIZE.md,
-    fontWeight : "bold",
     color : COLORS.white,
   }
 });
