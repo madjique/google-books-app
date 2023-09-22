@@ -1,4 +1,4 @@
 export type User = {
-  username? : string,
-  token? : string | null
+  username : string,
+  token : string
 }

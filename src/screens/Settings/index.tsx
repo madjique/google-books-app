@@ -7,7 +7,7 @@ import TitlePageHeader from "../../common/components/TitlePageHeader";
 import { globalStyle as gs } from "../../common/styles/global.style";
 import { screenStyle as ss } from "./style";
 import { COLORS } from "../../common/styles/colors";
-import { useAuthContext } from "../../common/contexts/authCtx";
+import { useAuthContext } from "../../common/contexts/AuthenticationContext";
 
 const Settings = () => {
   const navigation = useNavigation<StackNavigation>(); 
@@ -34,8 +34,7 @@ const Settings = () => {
           bgColor={COLORS.red}
           onPress={()=> { 
             signOut()
-            navigation.popToTop();
-            navigation.replace("Login"); 
+            navigation.replace('Splash')
           }}
         />
       </View>

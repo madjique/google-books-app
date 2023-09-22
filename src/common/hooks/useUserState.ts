@@ -4,35 +4,28 @@ import { clearUserSession, getUserSession, saveUserSession } from "../Storage"
 import { mockLogin } from "../network/api/login"
 
 export const useUserState = ()=> {
-  const [user, setUser] =useState<User>({})
+  const [user, setUser] =useState<User>()
   const [isLoading, setIsLoading] = useState(true)
   const [isSignedIn, setIsSignedIn] = useState(false)
   const [error, setError] = useState<string | null>()
 
   useEffect(() => {
-    getUserSession().then( token => {
-      if(token) {
-        setUser({
-          username : "",
-          token
-        })
+    getUserSession().then((user:User | null) => {
+      if(user) {
+        setUser(user)
         setIsSignedIn(true)
       }
     })
     .finally(()=> setIsLoading(false))
   }, [])
   
-
   const signIn = async ( authData : AuthCredentials) => {
     setError(null)
     setIsLoading(true) 
     return mockLogin(authData)
     .then( async (data :AuthResponse) => {
-      setUser({
-        username : "",
-        token : data.token
-      })
-      await saveUserSession(data.token)
+      setUser(data)
+      await saveUserSession(data)
       setIsSignedIn(true)
     })
     .catch( (data :AuthResponse) => {setError(data.message)})

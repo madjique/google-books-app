@@ -2,7 +2,7 @@ import { NavigationContainer  as RootNavigationContainer} from '@react-navigatio
 import Stack from './Router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { StatusBar } from 'react-native';
-import { AuthContextProvider } from './common/contexts/authCtx';
+import { AuthContextProvider } from './common/contexts/AuthenticationContext';
 
 function App(): JSX.Element {
 

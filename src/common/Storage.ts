@@ -1,7 +1,20 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { User } from './types';
 
-export const saveUserSession = (token :string) => AsyncStorage.setItem('user-token', token);
+export const saveUserSession = async (user: User) => {
+  await AsyncStorage.setItem('user-token', user?.token)
+  await AsyncStorage.setItem('user-name', user?.username)
+}
 
-export const getUserSession = ():Promise<string | null> => AsyncStorage.getItem('user-token');
+export const getUserSession = async ():Promise<User | null> => {
+  var token = await AsyncStorage.getItem('user-token');
+  var username = await AsyncStorage.getItem('user-name')
+  if (token && username)
+    return { token, username }
+  return null
+}
 
-export const clearUserSession = () => AsyncStorage.removeItem('user-token')
+export const clearUserSession = async () => {
+  await AsyncStorage.removeItem('user-token')
+  await AsyncStorage.removeItem('user-name')
+}

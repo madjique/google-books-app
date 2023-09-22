@@ -3,7 +3,7 @@ import { Image, ImageBackground, StyleSheet, View } from "react-native"
 import { SplashScreenNavigationProp } from "../../common/types";
 import { images } from "../../assets/images";
 import { useEffect } from "react";
-import { useAuthContext } from "../../common/contexts/authCtx";
+import { useAuthContext } from "../../common/contexts/AuthenticationContext";
 import { globalStyle as gs } from "../../common/styles/global.style";
 
 const Splash = () => {
@@ -11,6 +11,11 @@ const Splash = () => {
     const { isLoading, isSignedIn } = useAuthContext();
     
     useEffect( () => {
+      if(navigation.canGoBack())
+        navigation.reset({
+          index: 1,
+          routes: [{ name: "Splash" }]
+        })
       if (!isLoading)
         isSignedIn ? navigation.replace("BooksList") : navigation.replace("Login")
     }, [isLoading])

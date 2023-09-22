@@ -1,5 +1,5 @@
 import { PropsWithChildren, createContext, useContext, useMemo } from "react";
-import { useUserState } from "./useUserState";
+import { useUserState } from "../hooks/useUserState";
 
 export const AuthContext = createContext(useUserState())
 export const useAuthContext = () => useContext(AuthContext)

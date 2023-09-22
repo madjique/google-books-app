@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { images } from "../../assets/images";
 import { TextInputCS } from "../../common/components/TextInputCS";
 import PrimaryButton from "../../common/components/PrimaryButton";
-import { useAuthContext } from "../../common/contexts/authCtx";
+import { useAuthContext } from "../../common/contexts/AuthenticationContext";
 import { globalStyle as gs } from "../../common/styles/global.style";
 
 const Login = () => {
