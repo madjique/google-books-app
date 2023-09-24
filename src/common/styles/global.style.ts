@@ -31,5 +31,12 @@ export const globalStyle = StyleSheet.create({
     paddingHorizontal : 16,
     marginTop : 3,
     minHeight : 18
-  }
+  },
+  blurView : {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+  },
 })

@@ -9,7 +9,7 @@ export const screenStyle = StyleSheet.create({
   },
   listHeader : {
     marginTop : (Platform.OS === 'android' ? 10 : 0 ),
-    height : 110,
+    height : 210,
     width : "100%",
     backgroundColor : COLORS.white
   },
@@ -20,5 +20,16 @@ export const screenStyle = StyleSheet.create({
   },
   titlePageHeader : {
     position : "absolute"
+  },
+  searchBox : {
+    width : "100%",
+    alignItems : "center",
+    backgroundColor : COLORS.white,
+    marginTop : 110
+  },
+  refreshCtl : {
+    position : "absolute",
+    bottom : 110,
+    //backgroundColor: COLORS.orange
   }
 }) 

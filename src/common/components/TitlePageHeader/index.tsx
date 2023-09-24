@@ -6,6 +6,7 @@ import { componentStyle as s } from './style';
 import { images } from '../../../assets/images';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigation } from '../../types';
+import { globalStyle as gs } from '../../styles/global.style';
 
 export const TitlePageHeader = ( {title, styleCtn, styleTxt, styleOpt, OptionComponent, onOptionPress, goBackOption=false,...restViewProps} :TitlePageHeaderProps) => {
   const navigation = useNavigation<StackNavigation>()
@@ -17,7 +18,7 @@ export const TitlePageHeader = ( {title, styleCtn, styleTxt, styleOpt, OptionCom
         {
           Platform.OS === 'ios' &&
           <BlurView
-            style={s.blurView}
+            style={gs.blurView}
             blurType="regular"
             blurAmount={10}
             reducedTransparencyFallbackColor="white"

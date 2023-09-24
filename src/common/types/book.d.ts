@@ -1,5 +1,6 @@
 export type Book = {
   id :string,
+  etag: string
   volumeInfo : {
     title :string,
     authors : string[],

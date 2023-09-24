@@ -4,7 +4,7 @@ import { AuthCredentials, LoginScreenNavigationProp } from "../../common/types";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { images } from "../../assets/images";
-import { TextInputCS } from "../../common/components/TextInputCS";
+import { FormTextInput } from "../../common/components/FormTextInput";
 import PrimaryButton from "../../common/components/PrimaryButton";
 import { useAuthContext } from "../../common/contexts/AuthenticationContext";
 import { globalStyle as gs } from "../../common/styles/global.style";
@@ -40,12 +40,12 @@ const Login = () => {
         <View style={gs.screenContainer}>
           <Text style={{...gs.header,...ls.loginHeader}}>Story Books</Text>
           <Text style={gs.subHeader} >Browse Now !</Text>
-          <TextInputCS
+          <FormTextInput
             name="username"
             control={control}
             placeholder="Username"
           />
-          <TextInputCS
+          <FormTextInput
             name="password"
             control={control}
             placeholder="Password"

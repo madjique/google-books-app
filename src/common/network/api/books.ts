@@ -8,8 +8,9 @@ const GoogleBooksV1Client :AxiosInstance = axios.create({
   timeout: 1000
 })
 
-export function getBooksPerPage(perPage: number,index: number) :Promise<GoogleBooksApiResponse> {
-  const GET_BOOKS_QUERY = `?q=roman+policier&key=${GOOGLE_BOOKS_API_KEY}`
+export function getBooksPerPage(perPage: number,index: number, search?: string) :Promise<GoogleBooksApiResponse> {
+  var searchQuery = search?.replace(" ","+") || "roman+policier"
+  const GET_BOOKS_QUERY = `?q=${searchQuery}&key=${GOOGLE_BOOKS_API_KEY}`
   return GoogleBooksV1Client.get(`${GET_BOOKS_QUERY}&orderBy=relevance&startIndex=${index}&maxResults=${perPage}`)
 }
 

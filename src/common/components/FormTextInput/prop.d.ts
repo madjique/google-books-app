@@ -1,6 +1,6 @@
 import { TextInputProps } from "react-native";
 
-export type TextInputCSProps = {
+export type FormTextInputProps = {
   placeholder : string,
   control : Control<any>,
   name :string,

@@ -38,6 +38,7 @@ export const screenStyle = StyleSheet.create({
     width : "100%" 
   },
   bookDescription : {
-    color : COLORS.secondary
+    color : COLORS.secondary,
+    marginBottom : 30
   }
 })

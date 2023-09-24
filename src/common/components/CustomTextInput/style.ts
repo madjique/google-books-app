@@ -5,7 +5,7 @@ import { fontFamiliy } from "../../styles/fontFamily";
 
 export const componentStyle = StyleSheet.create({
   inputText: {
-    fontFamily : fontFamiliy.bold,
+    fontFamily : fontFamiliy.medium,
     color : COLORS.secondary,
     fontSize: FONTSIZE.md,
     padding: 0,

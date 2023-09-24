@@ -23,13 +23,6 @@ export const componentStyle = StyleSheet.create({
    color : COLORS.blackberry,
    margin : -1
   },
-  blurView : {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    bottom: 0,
-    right: 0,
-  },
   option : {
     marginLeft : "auto",
     justifyContent : "flex-start"
