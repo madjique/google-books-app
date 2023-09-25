@@ -38,8 +38,8 @@ const Login = () => {
         resizeMode="cover"
       >
         <View style={gs.screenContainer}>
-          <Text style={{...gs.header,...ls.loginHeader}}>Story Books</Text>
-          <Text style={gs.subHeader} >Browse Now !</Text>
+          <Text style={{...gs.header,...ls.loginHeader}}>All in One</Text>
+          <Text style={gs.subHeader} >Books !</Text>
           <FormTextInput
             name="username"
             control={control}
